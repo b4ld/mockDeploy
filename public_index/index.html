@@ -1,28 +1,64 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  html{
-    background-color:whitesmoke;
-  }
-.ab {
-  text-align: center;
-    font-size: 40px;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      background-color: whitesmoke;
+    }
+
+    .ab {
+      text-align: center;
+      font-size: 40px;
       margin-top: 0px;
-      }
-      </style>
-      </head>
-      <body>
+    }
 
-<h1 class="ab">---MOCK DEPLOY---</h1>
-<p id="demo" class="ab">The Future is Now</p>
+    .myButton {
+      -moz-box-shadow: inset 0px 39px 0px -24px #e67a73;
+      -webkit-box-shadow: inset 0px 39px 0px -24px #e67a73;
+      box-shadow: inset 0px 39px 0px -24px #e67a73;
+      background-color: #e4685d;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      border-radius: 4px;
+      border: 1px solid #ffffff;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: Arial;
+      font-size: 15px;
+      padding: 6px 15px;
+      text-decoration: none;
+      text-shadow: 0px 1px 0px #b23e35;
+      display: inline-block;
+      position: relative;
+      left: calc(50% - 60px);
+      width: 120px;
+    }
 
-      <img src="vdf.jpg" alt="">
+    .myButton:hover {
+      background-color: #eb675e;
+    }
+
+    .myButton:active {
+      position: relative;
+      top: 1px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <h1 class="ab">---MOCK DEPLOY---</h1>
+  <p id="demo" class="ab">The Future is Now</p>
+
+  <form action="/logs" method="GET">
+    <button class="myButton" name="Name" value="logs">SEND LOGS</button>
+  </form>
+  <img src="vdf.jpg" alt="">
 </body>
+
 </html>
-
-
-
-
-
