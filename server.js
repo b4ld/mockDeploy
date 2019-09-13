@@ -13,6 +13,11 @@ app.listen(portt, () => console.log('App listening on portt ' + portt))
 var d = new Date();
 var k = 0; 
 
+app.get('/mock', (req, res) => {
+        console.log("AFTER INGRESS -- WHITE HAMMER ")
+    res.redirect("/")
+})
+
 app.get('/logs', (req, res) => {
         console.log("Time is --- " + d)
         var i = 0;
