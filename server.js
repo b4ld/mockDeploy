@@ -3,29 +3,40 @@ const express = require('express')
 const request = require('request')
 const app = express()
 const bodyParser = require('body-parser');
-
+const os = require('os');
 const portt = 3999
 
 app.use(express.json());
 app.use(express.urlencoded())
-app.use(express.static("public_index"));
+app.use(express.static("public_index")); // with path doesnt work, TEST:  doing a "/" on "/mock" and send the public_index on it path 
 app.listen(portt, () => console.log('App listening on portt ' + portt))
 var d = new Date();
-var k = 0; 
+var k = 1;
 
 app.get('/mock', (req, res) => {
-        console.log("AFTER INGRESS -- WHITE HAMMER ")
-    res.redirect("/")
+        console.log("Someone is trying to enter.....")
+        res.redirect("/")
 })
 
 app.get('/logs', (req, res) => {
-        console.log("Time is --- " + d)
-        var i = 0;
-        while (i < 10) {
-                console.log("We made " + i + " --Iterations ----- find the Word RED HAMMER ");
-                i++;
+        var logsToSend = {
+                "httpslogs":{
+                        "ID": "mockdeploy",
+                        "Version": "v5-stable",
+                        "Status":"GOOD",
+                        "Date": d,
+                        "Btn Pressed ": k +" Times",
+                        "Host": req.headers.host,
+                },
+                "systemlogs":{
+                        "SHost":os.hostname(),
+                        "Release":os.release(),
+                        "CPUmain":os.cpus()[0],
+                        "CPUtimes":os.cpus()[0].times,
+                        "Free Mem":os.freemem(),
+                }
         }
-        console.log("Times Pressed " + k)
+        console.log(logsToSend)
         k++
         res.redirect("/")
 })
